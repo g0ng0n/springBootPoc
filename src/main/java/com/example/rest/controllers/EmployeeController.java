@@ -60,10 +60,34 @@ public class EmployeeController {
     }
 
     // Get employee by title (Week 2)
+    @RequestMapping(method = RequestMethod.GET, value = "/title/{title}")
+    public ResponseEntity getEmployeeByTitle(@PathVariable String title) {
 
+        List<Employee> employees = edao.getByTitle(title);
+
+        if (employees != null) {
+            return new ResponseEntity<>(employees, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+
+
+    }
 
     // Get employee by dept (Week 2)
+    @RequestMapping(method = RequestMethod.GET, value = "/department/{department}")
+    public ResponseEntity getEmployeeByDepartment(@PathVariable String department) {
 
+        List<Employee> employees = edao.getByDept(department);
+
+        if (employees != null) {
+            return new ResponseEntity<>(employees, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+
+
+    }
 
 
     // Add an employee
