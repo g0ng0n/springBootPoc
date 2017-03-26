@@ -1,6 +1,7 @@
 package com.example.rest.DAO.implementation;
 
 import com.example.rest.DAO.EmployeeDAO;
+import com.example.rest.DAO.Stubs.EmployeeStubs;
 import com.example.rest.model.Employee;
 
 import java.util.List;
@@ -10,9 +11,9 @@ import java.util.stream.Collectors;
 /**
  * Created by gonzalo.gisbert on 26/03/17.
  */
-public class EmployeeListDAO implements EmployeeDAO {
+public class EmployeeDAOImpl implements EmployeeDAO {
 
-    private final CopyOnWriteArrayList<Employee> eList = MockEmployeeList.getInstance();
+    private final CopyOnWriteArrayList<Employee> eList = EmployeeStubs.getInstance();
 
     @Override
     public List<Employee> getAllEmployees(){
