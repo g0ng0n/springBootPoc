@@ -112,6 +112,15 @@ public class EmployeeController {
     }
 
 
+    @RequestMapping(method = RequestMethod.DELETE, value = "{id}")
+    public ResponseEntity delete(@PathVariable long id) {
+
+        if (edao.delete(id)) {
+            return new ResponseEntity<>(null, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
 
 
 
